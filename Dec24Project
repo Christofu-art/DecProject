@@ -1,3 +1,88 @@
 #include<iostream>
 using namespace std;
 
+void BattleSim();
+
+//global variables: can be seen and used by all functions in the program!
+string inventory[5];
+int PlayerHealth = 100;
+
+int main() {
+	srand(time(NULL));
+	int room = 1;
+	char input;
+	while (PlayerHealth > 0) { //game loop!
+		switch (room) {
+		case 1:
+			cout << "you're in room 1, you can go (n)orth" << endl;
+			cin >> input;
+			if (input == 'n')
+				room = 2;
+			break;
+		case 2:
+			BattleSim();
+			cout << "you're in room 2, you can go (s)outh or (n)orth" << endl;
+			cin >> input;
+			if (input == 's')
+				room = 1;
+			else if (input == 'w')
+				room = 3;
+			break;
+		case 3:
+			cout << "you're in room 3, you can go (w)est" << endl;
+			cin >> input;
+			if (input == 'w')
+				room = 5;
+			break;
+		}
+
+
+	}//end of game loop
+
+
+}//end of main
+
+//function definition
+void BattleSim() {
+	int MonsterHealth = 20; //local variable: only be seen and used by BattleSim
+	int damage;
+	char dummy;
+	cout << endl << endl << "--------------------------MONSTER BATTLE BEGINS--------------------------" << endl;
+	cout << "an ogre attacks!" << endl;
+	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
+
+		//Monster fight
+		damage = rand() % 11; //monster can bite for 0-10
+		cout << "the monster bites you for " << damage << " dmg!" << endl;
+		PlayerHealth -= damage;
+		cout << "press any key to continue..." << endl;
+		cin >> dummy;
+
+		//player fights
+		damage = rand() % 5 + 5; //player swings 5-9
+		cout << "you hit the monster for " << damage << " dmg!" << endl;
+		MonsterHealth -= damage;
+		cout << "youre health is low now:" << PlayerHealth << endl;
+		cout << "The monster's health is low now: " << MonsterHealth << endl; //optional
+		cout << "press any key to continue..." << endl;
+		cin >> dummy;
+
+		if (PlayerHealth > 0)
+			cout << "Your health is low low now: " << PlayerHealth << endl;
+		else
+			cout << "damn, chat I died" << endl;
+
+		if (MonsterHealth > 0)
+			cout << "The monster's health is now: " << MonsterHealth << endl;
+		else
+			cout << "Well that monster dead" << endl;
+		cout << "press any key to continue..." << endl;
+		cin >> dummy;
+
+	}//end of battle loop
+	if (PlayerHealth > 0)
+		cout << "you won!" << endl;
+	else
+		cout << "Chat, you DIED" << endl;
+	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
+}

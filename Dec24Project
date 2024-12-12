@@ -167,12 +167,16 @@ void BattleSys() {
 		MonsterHealth = 35;
 	}
 
-	if (MonsterType == 4) { //golem
+	if (MonsterType == 4) { //lesser demon
 		MonsterHealth = 45;
 	}
 
 	if (MonsterType == 5) { //skeleton
 		MonsterHealth = 20;
+	}
+
+	if (MonsterType == 6) { //Skeleton Blaze
+		MonsterHealth = 100;
 	}
 
 	//set the monster"s damage depending on what type
@@ -194,6 +198,10 @@ void BattleSys() {
 
 	if (MonsterType == 5) { //skeleton
 		MonsterDMG = rand() % 10 + 1;
+	}
+
+	if (MonsterType == 6) { //Skeleton Blaze
+		MonsterDMG = rand() % 35 + 10;
 	}
 
 	//system("color 40");
@@ -289,5 +297,6 @@ int MonsterGen() {
 		cout << "spooky scary skeletons" << endl;
 		return 5;
 	}
+	else if (num <)
 
 }

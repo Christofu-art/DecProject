@@ -7,7 +7,7 @@ int MonsterGen();
 //void FinalFight();
 //global variables: can be seen and used by all functions in the program!
 string inventory[5];
-int PlayerHealth = 100;
+int PlayerHealth = 150;
 
 int main() {
 	srand(time(NULL));
@@ -19,14 +19,16 @@ int main() {
 		cout << "your iventoy: | ";
 		for (int i = 0; i < 5; i++)
 			cout << inventory[i] << " | ";
+		inventory[0] = "mystic whip";
+		inventory[1] = "sword";
+		inventory[2] = "armor";
 		cout << endl;
 		
 		switch (room) {
 		case 1:
 			BattleSys();
 			cout << "you're in the graveyard, you can go north" << endl;
-			inventory[0] = "mystic whip";
-			inventory[1] = "armor";
+			
 			cin >> input;
 			if (input == "north" || input == "go north")
 				room = 2;
@@ -150,25 +152,31 @@ int main() {
 //function definition
 void BattleSys() {
 	int MonsterType = MonsterGen();
+	//you could do this again too
 	int MonsterHealth = 0; //local variable: only be seen and used by BattleSim
 	int MonsterDMG = 0;
+	//add another monster health and dmg variable here
+	int MonsterHealth2 = 0;
+	int MonsterDMG2 = 0;
 	int input;
 	int num;
 
+
+	//copy paste all the stuff below and have it calculate for health 2 and dmg 2
 	if (MonsterType == 1) {//skeleton
 		MonsterHealth = 30;
 	}
 
-	if (MonsterType == 2) { //spider
-		MonsterHealth = 25;
+	if (MonsterType == 2) { //Slogra and Gaibon
+		MonsterHealth = 200;
 	}
 
-	if (MonsterType == 3) { //zombie
-		MonsterHealth = 35;
+	if (MonsterType == 3) { //gaibon
+		MonsterHealth = 200;
 	}
 
 	if (MonsterType == 4) { //lesser demon
-		MonsterHealth = 45;
+		MonsterHealth = 145;
 	}
 
 	if (MonsterType == 5) { //skeleton
@@ -184,12 +192,12 @@ void BattleSys() {
 		MonsterDMG = rand() % 20 + 1;
 	}
 
-	if (MonsterType == 2) { //spider
-		MonsterDMG = rand() % 6 + 5;
+	if (MonsterType == 2) { //Slogra and Gaibon
+		MonsterDMG = rand() % 70 + 5;
 	}
 
-	if (MonsterType == 3) { //zombie
-		MonsterDMG = rand() % 15 + 1;
+	if (MonsterType == 3) { //gaibon
+		MonsterDMG = rand() % 65 + 5;
 	}
 
 	if (MonsterType == 4) { //Lesser Demon
@@ -204,41 +212,169 @@ void BattleSys() {
 		MonsterDMG = rand() % 35 + 10;
 	}
 
+	//another stuff for health and dmg
+	if (MonsterType == 1) {//skeleton
+		MonsterHealth2 = 30;
+	}
+
+	if (MonsterType == 2) { //Slogra and Gaibon
+		MonsterHealth2 = 200;
+	}
+
+	if (MonsterType == 3) { //gaibon
+		MonsterHealth2 = 200;
+	}
+
+	if (MonsterType == 4) { //lesser demon
+		MonsterHealth2 = 145;
+	}
+
+	if (MonsterType == 5) { //skeleton
+		MonsterHealth2 = 20;
+	}
+
+	if (MonsterType == 6) { //Skeleton Blaze
+		MonsterHealth2 = 100;
+	}
+
+	//set the monster"s damage depending on what type
+	if (MonsterType == 1) { //skeleton
+		MonsterDMG = rand() % 20 + 1;
+	}
+
+	if (MonsterType == 2) { //Slogra and Gaibon
+		MonsterDMG = rand() % 70 + 5;
+	}
+
+	if (MonsterType == 3) { //gaibon
+		MonsterDMG = rand() % 65 + 5;
+	}
+
+	if (MonsterType == 4) { //Lesser Demon
+		MonsterDMG = rand() % 16 + 5;
+	}
+
+	if (MonsterType == 5) { //skeleton
+		MonsterDMG = rand() % 10 + 1;
+	}
+
+	if (MonsterType == 6) { //Skeleton Blaze
+		MonsterDMG = rand() % 35 + 10;
+	}
+
+	//2nd monster's damage
+	if (MonsterType == 1) { //skeleton
+		MonsterDMG2 = rand() % 20 + 1;
+	}
+
+	if (MonsterType == 2) { //Slogra and Gaibon
+		MonsterDMG2 = rand() % 70 + 5;
+	}
+
+	if (MonsterType == 3) { //gaibon
+		MonsterDMG2 = rand() % 65 + 5;
+	}
+
+	if (MonsterType == 4) { //Lesser Demon
+		MonsterDMG2 = rand() % 16 + 5;
+	}
+
+	if (MonsterType == 5) { //skeleton
+		MonsterDMG2 = rand() % 10 + 1;
+	}
+
+	if (MonsterType == 6) { //Skeleton Blaze
+		MonsterDMG2 = rand() % 35 + 10;
+	}
+
 	//system("color 40");
 	cout << endl << endl << "--------------------------BATTLE BEGINS--------------------------" << endl;
 	cout << "a Nightcreature attacks!" << endl;
-	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
+	while (PlayerHealth > 0 && MonsterHealth > 0 && MonsterHealth2 > 0) { //battle loop
 
-		//Monster fight
-		if (inventory[1] == "armor") {
+		//Monster fight (double this!
+		if (inventory[2] == "armor") {
 			num = rand() % 7 + 3;
-			cout << "your armor absorbs the blow and get hit for" << num << "damage!" << endl;
+			cout << "your armor absorbs the blow and get hit for " << num << " damage!" << endl;
 			PlayerHealth -= num;
 		}
 		else {
 			num = rand() % 15 + 12;
-			cout << "the monster bites your bare arm for " << num << " dmg" << endl;
+			cout << "the nightcreature attacks you for " << num << " dmg" << endl;
 			PlayerHealth -= num;
 		}
+		if (inventory[2] == "armor") {
+			num = rand() % 7 + 3;
+			cout << "your armor absorbs the blow and get hit for " << num << " damage!" << endl;
+			PlayerHealth -= num;
+		}
+		else {
+			num = rand() % 15 + 12;
+			cout << "Another nightcreature attacks you for " << num << " dmg" << endl;
+			PlayerHealth -= num;
+		}
+		//2nd monster attack goes here
+
 		//gets player's choice:
-		cout << "press 1 to attack, 2 to drink health potion, 3 to try escape!" << endl;
+		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, 4 to try escape!" << endl;
 		cin >> input;
 
 		switch (input) {
 		case 1:
 			//player attack
 			if (inventory[0] == "mystic whip") {
-				num = rand() % 10 + 10; //range from 10-20
-				cout << "you slash the monster with your whip for " << num << "damage!" << endl;
+				num = rand() % 25 + 10; //range from 10-24
+				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
 				MonsterHealth -= num;
+				//repeat the line above for monster 2
 			}
 			else {
-				num = rand() % 5 + 2; //range from 2-7
+				num = rand() % 16 + 5; //range from 5-15
 				cout << "you attack for " << num << " dmg" << endl;
 				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			if (inventory[0] == "mystic whip") {
+				num = rand() % 25 + 10; //range from 10-20
+				cout << "you slash another monster with your whip for " << num << " damage!" << endl;
+				MonsterHealth2 -= num;
+
+			}
+			else {
+				num = rand() % 16 + 5; //range from 2-7
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth2 -= num;
+
 			}
 			break;
-		case 2: //health
+		case 2:
+			//player attack
+			if (inventory[2] == "sword") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			if (inventory[2] == "sword") {
+				num = rand() % 26 + 10; //range from 10-20
+				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
+				MonsterHealth2 -= num;
+
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth2 -= num;
+
+			}
+			break;
+		case 3: //health
 			if (inventory[3] == "potion") {
 				cout << "jug jug!" << endl;
 				PlayerHealth += 50;
@@ -247,11 +383,12 @@ void BattleSys() {
 			else cout << "sorry you don't have any potions" << endl;
 
 			break;
-		case 3://escape
+		case 4://escape
 			num = rand() % 100;
 			if (num > 75) {//25% chance of escaping
 				cout << "you successfully run away!" << endl;
 				MonsterHealth = 0;
+				MonsterHealth2 = 0;
 
 			}
 			else cout << "you are connered and can't escape!" << endl;
@@ -262,6 +399,8 @@ void BattleSys() {
 
 		cout << "your health:" << PlayerHealth << endl;
 		cout << "monster's health:" << MonsterHealth << endl;
+		cout << "2nd monster's health:" << MonsterHealth2 << endl;
+		//monster 2 health here
 
 	}//end of battle loop
 	if (PlayerHealth > 0)
@@ -278,14 +417,13 @@ int MonsterGen() {
 		return 1;
 	}
 	else if (num < 20) {//5% chance
-		cout << "a spider crawls towards you." << endl;
-		cout << "it jumps at you." << endl;
+		cout << "a Slogra and Gaibon has spotted you." << endl;
 		return 2;
 	}
 
 	else if (num < 50) {//30%
-		cout << "a zombie stumbles forward." << endl;
-		cout << "it chomps towards you." << endl;
+		cout << "a Gaibon flies around you" << endl;
+		cout << "it lunges at you." << endl;
 		return 3;
 	}
 	else if (num < 75) {//25% chance
@@ -297,6 +435,9 @@ int MonsterGen() {
 		cout << "spooky scary skeletons" << endl;
 		return 5;
 	}
-	else if (num <)
+	else if (num < 5) {//10% chance
+		cout << "Skeleton Blaze" << endl;
+		return 6;
+	}
 
 }

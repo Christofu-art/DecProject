@@ -4,14 +4,22 @@ using namespace std;
 
 void BattleSys();
 int MonsterGen();
-//void FinalFight();
+void BossSys();
+void BossSys2();
+void BossSys3();
+void SecrectBoss();
+void FinalFight();
 //global variables: can be seen and used by all functions in the program!
-string inventory[5];
+string inventory[8];
 int PlayerHealth = 150;
+
 
 int main() {
 	srand(time(NULL));
 	int room = 1;
+	inventory[0] = "mystic whip";
+	inventory[1] = "sword";
+	inventory[2] = "armor";
 	string input;
 	while (PlayerHealth > 0 && (input != "quit")) { //game loop!
 		
@@ -19,9 +27,7 @@ int main() {
 		cout << "your iventoy: | ";
 		for (int i = 0; i < 5; i++)
 			cout << inventory[i] << " | ";
-		inventory[0] = "mystic whip";
-		inventory[1] = "sword";
-		inventory[2] = "armor";
+		
 		cout << endl;
 		
 		switch (room) {
@@ -34,7 +40,7 @@ int main() {
 				room = 2;
 			break;
 		case 2:
-			BattleSys();
+			
 			cout << "you're in room 2, you can go south, north, west, or east" << endl;
 			cin >> input;
 			if (input == "south" || input == "go south")
@@ -54,6 +60,7 @@ int main() {
 			}
 			break;
 		case 3:
+			BattleSys();
 			cout << "you're in room 3, you can go west" << endl;
 			cin >> input;
 			if (input == "west" || input == "go west")
@@ -82,6 +89,7 @@ int main() {
 				room = 4;
 			break;
 		case 7:
+			BattleSys();
 			cout << "you are in room 9, you can go west or east" << endl;
 			cin >> input;
 			if (input == "west" || input == "go west")
@@ -116,6 +124,7 @@ int main() {
 				room = 9;
 			break;
 		case 11:
+			BattleSys();
 			cout << "you are in room 11, you can go north or west" << endl;
 			cin >> input;
 			if (input == "west" || input == "go west")
@@ -134,6 +143,11 @@ int main() {
 			cin >> input;
 			if (input == "east" || input == "go east")
 				room = 11;
+			if (inventory[6] == "key") {
+				cout << "you unlock the chest" << endl;
+				cout << "You have obtained The Morning Star; The whip that will destroy all who are related to the kindred of the night." << endl;
+				inventory[0] = "Morning Star"; //erases inventory
+			}
 			break;
 		case 14:
 			cout << "you are in room 14, you can go south" << endl;
@@ -141,8 +155,16 @@ int main() {
 			if (input == "south" || input == "go south")
 				room = 12;
 			break;
+		case 15:
+			FinalFight();
+			cout << "Trevor, Sypha, and Alucard enters the vampire lord's study and BEHOLD, they are facing Dracula himself; Now the FINAL begins." << endl;
+			//replace with a "you won" statement and then type return 0;
+			break;
+		case 16:
+			SecrectBoss();
+			cout << "Trevor, Sypha, and Alucard enters the vampire lord's study and BEHOLD, they are facing Dracula himself" << endl;
+			break;
 		}
-
 
 	}//end of game loop
 
@@ -151,6 +173,7 @@ int main() {
 
 //function definition
 void BattleSys() {
+	system("color 04");
 	int MonsterType = MonsterGen();
 	//you could do this again too
 	int MonsterHealth = 0; //local variable: only be seen and used by BattleSim
@@ -287,7 +310,7 @@ void BattleSys() {
 		MonsterDMG2 = rand() % 35 + 10;
 	}
 
-	//system("color 40");
+
 	cout << endl << endl << "--------------------------BATTLE BEGINS--------------------------" << endl;
 	cout << "a Nightcreature attacks!" << endl;
 	while (PlayerHealth > 0 && MonsterHealth > 0 && MonsterHealth2 > 0) { //battle loop
@@ -351,7 +374,7 @@ void BattleSys() {
 			//player attack
 			if (inventory[2] == "sword") {
 				num = rand() % 26 + 5; //range from 5-25
-				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
+				cout << "you slash the monsters with your sword for " << num << " damage!" << endl;
 				MonsterHealth -= num;
 				//repeat the line above for monster 2
 			}
@@ -363,7 +386,7 @@ void BattleSys() {
 			}
 			if (inventory[2] == "sword") {
 				num = rand() % 26 + 10; //range from 10-20
-				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
+				cout << "you slash the monsters with your sword for " << num << " damage!" << endl;
 				MonsterHealth2 -= num;
 
 			}
@@ -406,7 +429,7 @@ void BattleSys() {
 	if (PlayerHealth > 0)
 		cout << "you won!" << endl;
 	else
-		cout << "Chat, you DIED" << endl;
+		cout << "Chat, you DIED; Is this real" << endl;
 	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
 }
 
@@ -440,4 +463,185 @@ int MonsterGen() {
 		return 6;
 	}
 
+}
+
+void BossSys() {
+	int MonsterHealth = 0; //local variable: only be seen and used by BattleSim
+	int MonsterDMG = 0;
+	//add another monster health and dmg variable here
+	int input;
+	int num;
+	cout << endl << endl << "--------------------------BOSS BATTLE BEGINS--------------------------" << endl;
+	cout << "a Nightcreature attacks!" << endl;
+	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
+
+		//Monster fight (double this!
+		if (inventory[2] == "armor") {
+			num = rand() % 7 + 3;
+			cout << "your armor absorbs the blow and get hit for " << num << " damage!" << endl;
+			PlayerHealth -= num;
+		}
+		else {
+			num = rand() % 15 + 12;
+			cout << "the nightcreature attacks you for " << num << " dmg" << endl;
+			PlayerHealth -= num;
+		}
+
+		//gets player's choice:
+		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, 4 to try escape!" << endl;
+		cin >> input;
+
+		switch (input) {
+		case 1:
+			//player attack
+			if (inventory[0] == "mystic whip") {
+				num = rand() % 25 + 10; //range from 10-24
+				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 16 + 5; //range from 5-15
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 2:
+			//player attack
+			if (inventory[2] == "sword") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "you slash the monsters with your sword for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 3: //health
+			if (inventory[3] == "potion") {
+				cout << "jug jug!" << endl;
+				PlayerHealth += 50;
+				inventory[3] = " "; //erase the potion
+			}
+			else cout << "sorry you don't have any potions" << endl;
+
+			break;
+		case 4://escape
+			num = rand() % 100;
+			if (num > 75) {//25% chance of escaping
+				cout << "you successfully run away!" << endl;
+				MonsterHealth = 0;
+
+			}
+			else cout << "you are connered and can't escape!" << endl;
+			break;
+		default:
+			cout << "srry not an option" << endl;
+		}
+
+		cout << "your health:" << PlayerHealth << endl;
+		cout << "monster's health:" << MonsterHealth << endl;
+		//monster 2 health here
+
+	}//end of battle loop
+	if (PlayerHealth > 0)
+		cout << "you won!" << endl;
+	else
+		cout << "Chat, you DIED; Is this real" << endl;
+	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
+}
+
+void FinalFight() {
+	int MonsterHealth = 0; //local variable: only be seen and used by BattleSim
+	int MonsterDMG = 0;
+	//add another monster health and dmg variable here
+	int input;
+	int num;
+	cout << endl << endl << "--------------------------DRACULA TEPES--------------------------" << endl;
+	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
+
+		//Monster fight (double this!
+		if (inventory[2] == "armor") {
+			num = rand() % 7 + 3;
+			cout << "your armor absorbs the blow and get hit for " << num << " damage!" << endl;
+			PlayerHealth -= num;
+		}
+		else {
+			num = rand() % 15 + 12;
+			cout << "the nightcreature attacks you for " << num << " dmg" << endl;
+			PlayerHealth -= num;
+		}
+
+		//gets player's choice:
+		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, press 4 for Sypha, press 5 for Alucard, 6 to try escape!" << endl;
+		cin >> input;
+
+		switch (input) {
+		case 1:
+			//player attack
+			if (inventory[0] == "mystic whip") {
+				num = rand() % 25 + 10; //range from 10-24
+				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 16 + 5; //range from 5-15
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 2:
+			//player attack
+			if (inventory[2] == "sword") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "you slash the monsters with your sword for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 3: //health
+			if (inventory[3] == "potion") {
+				cout << "jug jug!" << endl;
+				PlayerHealth += 50;
+				inventory[3] = " "; //erase the potion
+			}
+			else cout << "sorry you don't have any potions" << endl;
+
+			break;
+		case 4://escape
+			num = rand() % 100;
+			if (num > 75) {//25% chance of escaping
+				cout << "you successfully run away!" << endl;
+				MonsterHealth = 0;
+
+			}
+			else cout << "you are connered and can't escape!" << endl;
+			break;
+		default:
+			cout << "srry not an option" << endl;
+		}
+
+		cout << "your health:" << PlayerHealth << endl;
+		cout << "monster's health:" << MonsterHealth << endl;
+		//monster 2 health here
+
+	}//end of battle loop
+	if (PlayerHealth > 0)
+		cout << "you won!" << endl;
+	else
+		cout << "Chat, you DIED; Is this real" << endl;
+	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
 }

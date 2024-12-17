@@ -116,7 +116,7 @@ int main() {
 			break;
 		case 2:
 			BattleSys();
-			cout << "you're in room 2, you can go south, north, west, or east" << endl;
+			cout << "you've entered the main hall, as you looked to your surroundings  (you can go south, north, west, or east)" << endl;
 			cin >> input;
 			if (input == "south" || input == "go south")
 				room = 1;
@@ -125,9 +125,9 @@ int main() {
 			else if (input == "east" || input == "go east")
 				room = 4;
 			else if (input == "north" || input == "go north")
-				if (inventory[2] == "key") {
-					cout << "you unlock the door with the key" << endl;
-					inventory[2] = ""; //erases key form inventory
+				if (inventory[6] == "door key") {
+					cout << "you unlocked the large door with the key" << endl;
+					inventory[6] = ""; //erases key form inventory
 					room = 9;
 				}
 				else {
@@ -157,8 +157,8 @@ int main() {
 			if (input == "east" || input == "go east")
 				room = 3;
 			if (inventory[4] == "Sypha" || inventory[4] == "sypha") {
-				cout << "you unlock the chest" << endl;
-				cout << "You have obtained The Morning Star; The whip that will destroy all who are related to the kindred of the night." << endl;
+				cout << "Sypha has melted the thick ice" << endl;
+				cout << "You have obtained door key from the corpse.(you can now unlock a large door from the main hall)" << endl;
 				inventory[6] = "door key"; //erases inventory
 			}
 			break;

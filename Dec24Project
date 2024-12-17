@@ -6,8 +6,8 @@ using namespace std;
 void BattleSys();
 int MonsterGen();
 void BossSys();
-//void BossSys2();
-//void BossSys3();
+void BossSys2();
+void BossSys3();
 //void SecrectBoss();
 void FinalFight();
 //global variables: can be seen and used by all functions in the program!
@@ -27,13 +27,13 @@ int main() {
 	cout << "She replies that, from what she can see, Vlad doesn't travel much, and she could teach him to explore, understand, and perhaps even like, the world outside his castle." << endl;
 	cout << "Taken aback, he admits that he doesn't have much faith in humanity, though he confesses she is not like most of the humans he has encountered." << endl;
 	cout << "She rejoins that humanity would benefit immensely if she were allowed to share his advanced knowledge with it." << endl;
-    
+
 	cout << "In 1475, Vlad's happy days with Lisa came to an abrupt and tragic end." << endl;
 	cout << "One night, while returning home from his travels, he discovered that the cottage was completely burned down." << endl;
 	cout << "He then encountered Mrs. Djuvara, who was treated by Lisa." << endl;
 	cout << "While she was laying flowers, Vlad learned from her that Lisa was arrested on false charges of witchcraft, and she was sentenced to death." << endl;
 	cout << "Enraged, Vlad abandoned his human identity and became Dracula once more." << endl;
-
+	cout << "" << endl;
 	cout << "+==+=+++****+++###%%%@@@@@@@@@@@@@@@@@%+-:........#%#:.........-+%%@@@@@@@@#+*++++#@@@@@@@@@@@+-++**" << endl;
 	cout << "#**#*##%%%@@@@@@@@@@@@@@@@@@@@@@@@@%*:...........=@%@+...:::......:#%%@@@@*-+*#*#+####%@#=*%#=--+***" << endl;
 	cout << "@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@%%%#+....:.......:-#@#@@:=......:.....:=+----===+++=====++==+++=+++*++" << endl;
@@ -90,10 +90,11 @@ int main() {
 	cout << "#@@@@@@#@@@@@@#@@@@@@@@@@@@#**@%==-:::--::::-#@%%@@@%*----:::::::-:-::-*+++#***###%#@@*###%#********" << endl;
 	cout << "@#@@@@@@@@@@@@@%@@@@@@@@@@@##*%@*+-:----=--:::+#@#@@@@=::::-------====++++##*****#@##%###%@%**####**" << endl;
 
+	cout << "" << endl;
 	cout << "You are Trevor Belmont, the main protagonist of Castlevania" << endl;
 	cout << "He is a vampire hunter and the last descendant of the Belmont family, who were wrongfully exiled, excommunicated and massacred by the Church." << endl;
 	cout << "And now humanity is facing a threat by none other than Dracula himself who sought to destroy humanity following the execution of his wife Lisa for the accused of witchcraft" << endl;
-	cout << "Trevor and the Belmont clan are the only ones who can defeat Dracula and his army of darkness however he can’t do it alone, you will need all the help you could get to achieve that." << endl;
+	cout << "Trevor and the Belmont clan are the only ones who can defeat Dracula and his army of darkness however he can't do it alone, you will need all the help you could get to achieve that." << endl;
 	cout << "" << endl;
 
 	srand(time(NULL));
@@ -113,7 +114,7 @@ int main() {
 
 		switch (room) {
 		case 1:
-			
+
 			cout << "you're in the graveyard, you can go north" << endl;
 
 			cin >> input;
@@ -122,7 +123,7 @@ int main() {
 			break;
 		case 2:
 			BattleSys();
-			cout << "you've entered the opulent hallway(main hall), as you looked to your surroundings  (you can go south, north, west, or east)" << endl;
+			cout << "you've entered the opulent hallway (main hall), as you looked to your surroundings the room in this area is huge and you also notticed two large doors in front of you that is well shut. (you can go south, north, west, or east)" << endl;
 			cin >> input;
 			if (input == "south" || input == "go south")
 				room = 1;
@@ -174,8 +175,6 @@ int main() {
 			cin >> input;
 			if (input == "west" || input == "go west")
 				room = 4;
-			cout << "Character Unlocked" << endl;
-			inventory[4] = "Sypha";
 			break;
 		case 7:
 			BattleSys();
@@ -545,6 +544,7 @@ void BattleSys() {
 		cout << "you won!" << endl;
 	else
 		cout << "Rest In Peace" << endl;
+	    cout << "Dracula has won, humanity is forever perished" << endl;
 	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
 }
 
@@ -587,7 +587,7 @@ void BossSys() {
 	int input;
 	int num;
 	cout << endl << endl << "--------------------------BOSS BATTLE BEGINS--------------------------" << endl;
-	cout << "As Trevor enters the catacombs, he spotted a hodded speaker who was stoned a Nightcreature attacks!" << endl;
+	cout << "As Trevor enters the catacombs, he spotted a statue of hodded speaker who is stoned, as he inspects it, a Cyclops attacks him" << endl;
 	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
 
 		//Monster fight (double this!
@@ -664,10 +664,14 @@ void BossSys() {
 		//monster 2 health here
 
 	}//end of battle loop
-	if (PlayerHealth > 0)
+	if (PlayerHealth > 0) {
 		cout << "you won!" << endl;
+		cout << " after that fight , Sypha is saved from her stone encasement, albeit nauseous." << endl;
+		inventory[4] == "Sypha";
+	}
 	else
-		cout << "Chat, you DIED; Is this real" << endl;
+		cout << "Rest In Peace" << endl;
+	    cout << "Dracula has won, humanity is forever perished" << endl;
 	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
 }
 
@@ -690,6 +694,92 @@ void BossSys2() {
 		else {
 			num = rand() % 15 + 12;
 			cout << "Alucard attacks you for " << num << " dmg" << endl;
+			PlayerHealth -= num;
+		}
+
+		//gets player's choice:
+		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, press 4 for Sypha" << endl;
+		cin >> input;
+
+		switch (input) {
+		case 1:
+			//player attack
+			if (inventory[0] == "mystic whip") {
+				num = rand() % 25 + 10; //range from 10-24
+				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 16 + 5; //range from 5-15
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 2:
+			//player attack
+			if (inventory[2] == "sword") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "you slash the monsters with your sword for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 3: //health
+			if (inventory[3] == "potion") {
+				cout << "jug jug!" << endl;
+				PlayerHealth += 50;
+				inventory[3] = " "; //erase the potion
+			}
+			else cout << "sorry you don't have any potions" << endl;
+
+			break;
+		default:
+			cout << "srry not an option" << endl;
+		}
+
+		cout << "your health:" << PlayerHealth << endl;
+		cout << "monster's health:" << MonsterHealth << endl;
+		//monster 2 health here
+
+	}//end of battle loop
+	if (PlayerHealth > 0) {
+		cout << "you won!" << endl;
+		cout << " after that fight , Sypha is saved from her stone encasement, albeit nauseous." << endl;
+		inventory[5] == "Alucard";
+	}
+	else
+		cout << "Rest In Peace" << endl;
+	    cout << "Dracula has won, humanity is forever perished" << endl;
+	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
+}
+
+void BossSys3() {
+	int MonsterHealth = 0; //local variable: only be seen and used by BattleSim
+	int MonsterDMG = 0;
+	//add another monster health and dmg variable here
+	int input;
+	int num;
+	cout << endl << endl << "--------------------------BOSS BATTLE BEGINS--------------------------" << endl;
+	cout << "As the companions enters one of the devil forgemaster's forge room, a creature slowly comes out of the shadow, it's eyes are glowing; Devin's nigthcreature is known as Blue Fangs" << endl;
+	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
+
+		//Monster fight (double this!
+		if (inventory[2] == "armor") {
+			num = rand() % 7 + 3;
+			cout << "your armor absorbs the blow and get hit for " << num << " damage!" << endl;
+			PlayerHealth -= num;
+		}
+		else {
+			num = rand() % 15 + 12;
+			cout << "the nightcreature attacks you for " << num << " dmg" << endl;
 			PlayerHealth -= num;
 		}
 
@@ -746,10 +836,14 @@ void BossSys2() {
 		//monster 2 health here
 
 	}//end of battle loop
-	if (PlayerHealth > 0)
+	if (PlayerHealth > 0) {
 		cout << "you won!" << endl;
+		cout << "as creature's death comes sooner, he spew his last words saying, \"There's an army of us! An army of...from HELL!\" it's body is disintegrating and as the ashes is blown from the wind; A key is spotted." << endl;
+		inventory[6] == "key";
+	}
 	else
-		cout << "Chat, you DIED; Is this real" << endl;
+		cout << "Rest In Peace" << endl;
+	    cout << "Dracula has won, humanity is forever perished" << endl;
 	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
 }
 
@@ -794,6 +888,18 @@ void FinalFight() {
 				MonsterHealth -= num;
 				//repeat for monster2
 			}
+			if (inventory[0] == "Morning Star") {
+				num = rand() % 100 + 50; //range from 50-100
+				cout << "you slash the monsters with the Morning Star for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 16 + 5; //range from 5-15
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
 			break;
 		case 2:
 			//player attack
@@ -831,6 +937,7 @@ void FinalFight() {
 	if (PlayerHealth > 0)
 		cout << "you won!" << endl;
 	else
-		cout << "Chat, you DIED; Is this real" << endl;
+		cout << "Rest In Peace" << endl;
+	    cout << "Dracula has won, humanity is forever perished" << endl;
 	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
 }

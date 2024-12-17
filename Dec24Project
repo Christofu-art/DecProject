@@ -90,6 +90,12 @@ int main() {
 	cout << "#@@@@@@#@@@@@@#@@@@@@@@@@@@#**@%==-:::--::::-#@%%@@@%*----:::::::-:-::-*+++#***###%#@@*###%#********" << endl;
 	cout << "@#@@@@@@@@@@@@@%@@@@@@@@@@@##*%@*+-:----=--:::+#@#@@@@=::::-------====++++##*****#@##%###%@%**####**" << endl;
 
+	cout << "You are Trevor Belmont, the main protagonist of Castlevania" << endl;
+	cout << "He is a vampire hunter and the last descendant of the Belmont family, who were wrongfully exiled, excommunicated and massacred by the Church." << endl;
+	cout << "And now humanity is facing a threat by none other than Dracula himself who sought to destroy humanity following the execution of his wife Lisa for the accused of witchcraft" << endl;
+	cout << "Trevor and the Belmont clan are the only ones who can defeat Dracula and his army of darkness however he can’t do it alone, you will need all the help you could get to achieve that." << endl;
+	cout << "" << endl;
+
 	srand(time(NULL));
 	int room = 1;
 	inventory[0] = "mystic whip";
@@ -116,7 +122,7 @@ int main() {
 			break;
 		case 2:
 			BattleSys();
-			cout << "you've entered the main hall, as you looked to your surroundings  (you can go south, north, west, or east)" << endl;
+			cout << "you've entered the opulent hallway(main hall), as you looked to your surroundings  (you can go south, north, west, or east)" << endl;
 			cin >> input;
 			if (input == "south" || input == "go south")
 				room = 1;

@@ -8,7 +8,7 @@ int MonsterGen();
 void BossSys();
 void BossSys2();
 void BossSys3();
-//void SecrectBoss();
+void SecrectBoss();
 void FinalFight();
 //global variables: can be seen and used by all functions in the program!
 string inventory[8];
@@ -178,7 +178,7 @@ int main() {
 			break;
 		case 7:
 			BattleSys();
-			cout << "you are in room 9, you can go west or east" << endl;
+			cout << "you have entered the room that is likely a war council room, you can go west or east" << endl;
 			cin >> input;
 			if (input == "west" || input == "go west")
 				room = 10;
@@ -186,7 +186,7 @@ int main() {
 				room = 8;
 			break;
 		case 8:
-			cout << "you are in room 8, you can go north, west, or east" << endl;
+			cout << "you are in the kitchen, there are barley supplies here but you notticed a potion, you can go north, west, or east" << endl;
 			cin >> input;
 			if (input == "north" || input == "go north")
 				room = 12;
@@ -430,7 +430,7 @@ void BattleSys() {
 		//2nd monster attack goes here
 
 		//gets player's choice:
-		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, 4 to try escape!" << endl;
+		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, press 4 for Sypha, press 5 for Alucard, 6 to try escape!" << endl;
 		cin >> input;
 
 		switch (input) {
@@ -520,7 +520,36 @@ void BattleSys() {
 			else cout << "sorry you don't have any potions" << endl;
 
 			break;
-		case 4://escape
+		
+		case 4:
+			if (inventory[4] == "Sypha") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "Sypha uses her pyrokinesis on enemies for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "Sypha attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 5:
+			if (inventory[5] == "Alucard") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "Sypha uses her pyrokinesis on enemies for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "Sypha attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 6://escape
 			num = rand() % 100;
 			if (num > 75) {//25% chance of escaping
 				cout << "you successfully run away!" << endl;
@@ -540,8 +569,10 @@ void BattleSys() {
 		//monster 2 health here
 
 	}//end of battle loop
-	if (PlayerHealth > 0)
+	if (PlayerHealth > 0) {
 		cout << "you won!" << endl;
+		inventory[3] == "potion";
+	}
 	else
 		cout << "Rest In Peace" << endl;
 	    cout << "Dracula has won, humanity is forever perished" << endl;
@@ -741,6 +772,20 @@ void BossSys2() {
 			else cout << "sorry you don't have any potions" << endl;
 
 			break;
+		case 4:
+			if (inventory[4] == "Sypha") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "Sypha uses her pyrokinesis on enemies for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "Sypha attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
 		default:
 			cout << "srry not an option" << endl;
 		}
@@ -762,7 +807,7 @@ void BossSys2() {
 }
 
 void BossSys3() {
-	int MonsterHealth = 0; //local variable: only be seen and used by BattleSim
+	int MonsterHealth = 150; //local variable: only be seen and used by BattleSim
 	int MonsterDMG = 0;
 	//add another monster health and dmg variable here
 	int input;
@@ -773,7 +818,7 @@ void BossSys3() {
 
 		//Monster fight (double this!
 		if (inventory[2] == "armor") {
-			num = rand() % 7 + 3;
+			num = rand() % 14 + 6;
 			cout << "your armor absorbs the blow and get hit for " << num << " damage!" << endl;
 			PlayerHealth -= num;
 		}
@@ -827,6 +872,34 @@ void BossSys3() {
 			else cout << "sorry you don't have any potions" << endl;
 
 			break;
+		case 4:
+			if (inventory[4] == "Sypha") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "Sypha uses her pyrokinesis on enemies for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "Sypha attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 5:
+			if (inventory[5] == "Alucard") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "Sypha uses her pyrokinesis on enemies for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "Sypha attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
 		default:
 			cout << "srry not an option" << endl;
 		}
@@ -859,12 +932,12 @@ void FinalFight() {
 
 		//Monster fight 
 		if (inventory[2] == "armor") {
-			num = rand() % 7 + 3;
+			num = rand() % 14 + 6;
 			cout << "your armor absorbs the blow and get hit for " << num << " damage!" << endl;
 			PlayerHealth -= num;
 		}
 		else {
-			num = rand() % 15 + 12;
+			num = rand() % 75 + 25;
 			cout << "Dracula attacks you for " << num << " dmg" << endl;
 			PlayerHealth -= num;
 		}
@@ -925,6 +998,34 @@ void FinalFight() {
 			else cout << "sorry you don't have any potions" << endl;
 
 			break;
+		case 4:
+			if (inventory[4] == "Sypha") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "Sypha uses her pyrokinesis on enemies for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "Sypha attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 5:
+			if (inventory[5] == "Alucard") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "Sypha uses her pyrokinesis on enemies for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "Sypha attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
 		default:
 			cout << "srry not an option" << endl;
 		}
@@ -939,5 +1040,128 @@ void FinalFight() {
 	else
 		cout << "Rest In Peace" << endl;
 	    cout << "Dracula has won, humanity is forever perished" << endl;
+	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
+}
+
+void SecrectBoss() {
+	int MonsterHealth = 200; //local variable: only be seen and used by BattleSim
+	int MonsterDMG = 0;
+	//add another monster health and dmg variable here
+	int input;
+	int num;
+	cout << "Trevor interacts with the marking that immediatly sends them to misty void room and the last thing everyone in this life would want to meet is Death." << endl;
+	cout << endl << endl << "--------------------------DEATH--------------------------" << endl;
+	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
+
+		//Monster fight 
+		if (inventory[2] == "armor") {
+			num = rand() % 14 + 6;
+			cout << "your armor absorbs the insane blow and get hit for " << num << " damage!" << endl;
+			PlayerHealth -= num;
+		}
+		else {
+			num = rand() % 100 + 25;
+			cout << "Death attacks you for " << num << " dmg" << endl;
+			PlayerHealth -= num;
+		}
+
+		//gets player's choice:
+		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, press 4 for Sypha, press 5 for Alucard" << endl;
+		cin >> input;
+
+		switch (input) {
+		case 1:
+			//player attack
+			if (inventory[0] == "mystic whip") {
+				num = rand() % 25 + 10; //range from 10-24
+				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 16 + 5; //range from 5-15
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			if (inventory[0] == "Morning Star") {
+				num = rand() % 100 + 50; //range from 50-100
+				cout << "you slash the monsters with the Morning Star for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 16 + 5; //range from 5-15
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 2:
+			//player attack
+			if (inventory[2] == "sword") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "you slash the monsters with your sword for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 3: //health
+			if (inventory[3] == "potion") {
+				cout << "jug jug!" << endl;
+				PlayerHealth += 50;
+				inventory[3] = " "; //erase the potion
+			}
+			else cout << "sorry you don't have any potions" << endl;
+
+			break;
+		case 4: 
+			if (inventory[4] == "Sypha") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "Sypha uses her pyrokinesis on enemies for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "Sypha attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 5:
+			if (inventory[5] == "Alucard") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "Sypha uses her pyrokinesis on enemies for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "Sypha attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		default:
+			cout << "srry not an option" << endl;
+		}
+
+		cout << "your health:" << PlayerHealth << endl;
+		cout << "monster's health:" << MonsterHealth << endl;
+		//monster 2 health here
+
+	}//end of battle loop
+	if (PlayerHealth > 0)
+		cout << "you won!" << endl;
+	else
+		cout << "Rest In Peace" << endl;
+	cout << "Dracula has won, humanity is forever perished" << endl;
 	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
 }

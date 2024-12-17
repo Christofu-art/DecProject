@@ -1,3 +1,4 @@
+
 #include<Windows.h>
 #include<iostream>
 using namespace std;
@@ -5,9 +6,9 @@ using namespace std;
 void BattleSys();
 int MonsterGen();
 void BossSys();
-void BossSys2();
-void BossSys3();
-void SecrectBoss();
+//void BossSys2();
+//void BossSys3();
+//void SecrectBoss();
 void FinalFight();
 //global variables: can be seen and used by all functions in the program!
 string inventory[8];
@@ -15,6 +16,80 @@ int PlayerHealth = 150;
 
 
 int main() {
+	cout << "Wallachia, 1455" << endl;
+	cout << "Across a field are skeletons set on pikes.Bats fly across the bodies, but a knife pierces through" << endl;
+	cout << "one of them, wielded by a woman standing before a rather imposing castle." << endl;
+	cout << "She inhales sharply as she knocks on the doors.As the doors slowly open, she enters, and an opulent hallway greets her." << endl;
+	cout << "Upon entering the castle, she introduces herself as Lisa of Lupu.She is then greeted by its master : Vlad Dracula Tepes." << endl;
+	cout << "She wants to become a doctor, but the backward inhabitants of her village have nothing to offer." << endl;
+	cout << "Everyone says the master of the castle has advanced knowledge of the new \"science\", which she believes in." << endl;
+	cout << "Vlad asks what Lisa has to offer in exchange for his knowledge." << endl;
+	cout << "She replies that, from what she can see, Vlad doesn't travel much, and she could teach him to explore, understand, and perhaps even like, the world outside his castle." << endl;
+	cout << "Taken aback, he admits that he doesn't have much faith in humanity, though he confesses she is not like most of the humans he has encountered." << endl;
+	cout << "She rejoins that humanity would benefit immensely if she were allowed to share his advanced knowledge with it." << endl;
+    
+	cout << "In 1475, Vlad's happy days with Lisa came to an abrupt and tragic end." << endl;
+	cout << "One night, while returning home from his travels, he discovered that the cottage was completely burned down." << endl;
+	cout << "He then encountered Mrs. Djuvara, who was treated by Lisa." << endl;
+	cout << "While she was laying flowers, Vlad learned from her that Lisa was arrested on false charges of witchcraft, and she was sentenced to death." << endl;
+	cout << "Enraged, Vlad abandoned his human identity and became Dracula once more." << endl;
+
+	cout << "+==+=+++****+++###%%%@@@@@@@@@@@@@@@@@%+-:........#%#:.........-+%%@@@@@@@@#+*++++#@@@@@@@@@@@+-++**" << endl;
+	cout << "#**#*##%%%@@@@@@@@@@@@@@@@@@@@@@@@@%*:...........=@%@+...:::......:#%%@@@@*-+*#*#+####%@#=*%#=--+***" << endl;
+	cout << "@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@%%%#+....:.......:-#@#@@:=......:.....:=+----===+++=====++==+++=+++*++" << endl;
+	cout << "@%%@@@@@@%#*#%@@%%@@@@@@@@@@@%%%*:.....-.......**%##@@%*......::......-#%%%%%%%%%%%%%%#+==++=+++++++" << endl;
+	cout << "#*******+=-=+#%%%%%%%%%%%%%%%%%=.......=.......##*+*@@@*......--........*%%%%%%%#*+++++*++++******=-" << endl;
+	cout << "++++++++*#%%%%%%%%%%%%%%%%%%%#=..:....:#.......*####@@@*......*-........:*#%#**#%%%%%%%%%######*****" << endl;
+	cout << "++++++**#%%%%%%%%%%%%%%%%%%%#=.::::...=@:.....:=++*#@@%=.....:%#.........-##%%%%%%%%%#%%%%%#*#%%%%##" << endl;
+	cout << "=+++##%%%%%%%%%%%%%%%%%%%%%#+:::-:...:*@+.:....-#*+*@@@=..+-.=@@=.........+#######%%######+=++**####" << endl;
+	cout << "***+*##%###*++===+===++*####::--::...=%@%-.....-**+*@@@+-=#%+**@%:....:::.:#########################" << endl;
+	cout << "*******+++**#***###########=...:---::+*#@+...-+##**#@%@@@@@@##%@%::...:::..+########################" << endl;
+	cout << "=+**#######+---+###########-....:::..+%@@++#@@@#***%%%%@@@@%@@%%@-+:.......=########################" << endl;
+	cout << "#########+-:=+=-=#########*-:::.:.-:.-##******###%#####@@%%@@@##@%%:..:..::=########################" << endl;
+	cout << "##+--+*=-==-===+-=*=+*####*-::--::*#.-%##%%%##*%*###**#@@%@@@@##@@%:.....::+########################" << endl;
+	cout << "#*-:-:-==-:-----===:::#####-.::-:=@@+=%%%@@@@@@@%%%##**@%#%@@@%%@@@-.....::#########################" << endl;
+	cout << "*+=.:-++:-=++++++++--:::*##+:::--+%@@@@@@@@@@@@@@@@%*+*@@@@%##%#%.........=#################*-:--=+=" << endl;
+	cout << "::::=++-:-++++++++=---::-+*+::...=#@#%%#%%#%#%@%@%##*+*@@@@@@@@@@-..:::..-*###***##########*-::-=+++" << endl;
+	cout << "-.::::-==-=++===++=-====:-:-==:-.+#@#**++++++*@@%++*++*@@@@@@@@@@+...::.:++--:::=*########+:----++::" << endl;
+	cout << "==---:.::---:::::::---------%##@:=*@###%%%%%%#@%*##*++*@@@@@@%@@@+..---.=**++**###########*---:--::-" << endl;
+	cout << "-==--:---------=+==**%*+++++%%%@+=*#*#@@#%@@#*@%%@@%++*@@@@@##@@@+..#+#-=#*=--*#####=--+*+-:-:--==-=" << endl;
+	cout << "***+++******--=+*+--*@###*#+@@@@@##%#%@@%#%%#*@%#@@%*+*@@@%%+=%@@@%%%#%*-::---+=:::----==::-:::::==:" << endl;
+	cout << "=+++==::---+++=--=-+#@@@%%%*%@@%@%%%%#%%%%@@%%@%%%%%%%#%#%%#*=#@@@@@@@@@@#+%**@#::-=-----==-------::" << endl;
+	cout << ":-++==++*#************#@@%%%%####*****#*******%#*****+**+#+*++#@@@@@@@@@@%#@@@@@+.:----------======-" << endl;
+	cout << "++=--+++*####*******+*#@@###***#%##%*###*##%#%%+*+++*+**+*+#++#@@@%@@@@@@@@@@@@@#+++++++******+-=+:-" << endl;
+	cout << "-+******+*********=+++*@@**####**++=+++*+++**#%**++++*+#****+=#@@@%@@@@@@@@@@@@@%+******-::::::::::-" << endl;
+	cout << "-:-+*****+=:::::-**+=+#@@+++===++++**+%@##%#++#*+=+++++%%#*#+=#@@@%@@%%@@@@@%@@@@@#-.:::::-===+++---" << endl;
+	cout << "--:::::::---=+==#+====#@%=*%*+++**#@%*@%@%@%+=*+*++*+++*%#+*#=#@@@%@@%%@@@@##%%@@@@%*+*********+---=" << endl;
+	cout << "::::---::=*+=*+***+*==*=+##*===%%%%##%@@%*#%*=#%@@@%*#*++%+*++*@@%%%@%%@@%%#%%%%%%@@#-=**********++=" << endl;
+	cout << "--:--=+**++#+*#**+*%#+++=+*+*+**%++**#%@#%#***%@@@#*##+=*#++=*%@@@%@@@%%%@@@%%%@%@@@@@@%*-----::::::" << endl;
+	cout << ":::*++++**++##*+**##+**+=*%##++==+*%*%%@#+=*#%@%**+***+*#*+*+*%%@@@#@@@@%@@@#%@%@@@@@@@%@%::::::::::" << endl;
+	cout << "+*+***++++*#*++#*%@#*++*+*#++***+*#%#*#=+**+%%%#*#@%*=*%#+++*@@#@@@%#@@@@%%%%#%%%@@@@@%%#@#-::------" << endl;
+	cout << "+****+++##*++++#%@++++*+#%***++++**#+=++#*+###*+#@%*=+%@#++#%%%#@@%@#%@@@@%#%%@%%@@%%@@@%%%@@%*=:..." << endl;
+	cout << "***++++*%*++*#%@@*##*#+*%++##+=+#%*#*=##**#****#**%***#%*+*#%##%@@@%@%@@@%@%#%@%#%%%%@@@%@@@@@%%%%+:" << endl;
+	cout << "*+*##*+#****#%%*+++**+***%##*=*%#+*+*###+*++##++*+#*+++##++#%*%@%@#%%%%@@%%@@%#%%%%%%%##%%%@@@@@%%%%" << endl;
+	cout << "***+*****+*##%%#*##**#*+++**+++****+**+#*%##*+++##*+++*##+##*%%#%%#@#%%@@@@%@@@#%%%%%%%##%#%%#%@@%%%" << endl;
+	cout << "%*=+*##**#####*+*****+##**++***+*+##***###*++++***++++##***#%%#*%##@@@%%#@@@@%%%############%#######" << endl;
+	cout << "#*==##*****#*++*###*+*#+++*+##++**%%*#*+#%#**%*#*+++##%#*******###%@@@@@#@@@%%%############%%%######" << endl;
+	cout << "@@@%-+***####*####***+**++*#++*+*%%*++**%@@**+**+#@*#**#****%##*#%@@@%%%%%%%%#%#%###############**#*" << endl;
+	cout << "@@%*+=*+###*####*++++++*#%#+##**##*++**#%%@******#%*%#*##***%%*#%%%%%%##%%%%%%##%%#########*+=+=++*@" << endl;
+	cout << "@@@#+-*########*+++++#%*++*##%####++######+*#***++#@%*#*****#*##%%%%#%%##%%%%%%%#%#****#*#*=++#@@%#%" << endl;
+	cout << "%@@@#*+*****#*+++++**++**######**+*#####*++***++######*****###**######**#######%##%%#***++@#+**#@@@@" << endl;
+	cout << "@@@@@@%##+*++++++**+++*#*+***++*++*###*+*+++***##*#********##############################*##*%#%@@@@" << endl;
+	cout << "@@@@@@@##%#=++***+++*++****#*++*++*#****+++***********##*###########################*=#%**#%%#%@@@@@" << endl;
+	cout << "@@@@@@@@%#%*+++++++**+++****+***+++++++++++********#################****####******#*+%%++++*+#%**@@@" << endl;
+	cout << "@@@@@%@@@%#%%%%*+++++*#**++++++++++++**+********************************************+*%#***#%##*#%@@" << endl;
+	cout << "@@@@@@@@@@@@@@@@@@@@@@@%%@%***+++*+**+++++++++**++*****************************+*++++#%%******#@@@@@" << endl;
+	cout << "@@@@@@@@%%@@@@@@@@@@@@@@#%%#+*++****++****++******+++***+********++++*+++++++++**++***#@*###**+#@%@@" << endl;
+	cout << "@@@@@%@@@%#@@@@@@@@@@@@@%#%@%**++++++++++++++++++++++++***++++++++*+++*++++++++++++**%%%@*#*#*##@%%@" << endl;
+	cout << "@@@@@@#@@@#%@@@@@@@@@@@@@%%@@%#+++++++++++++++=*+****++**+++***+++++*+++*++++==**++**%@@@*****%##@%@" << endl;
+	cout << "@@@@@@#@@@%#@@@@@@@@@@@@@@@*##*+++++++++++=+*+==*@@+===+++=+==++=+++++++*+====+******#@@@***##%*+***" << endl;
+	cout << "@@@@@@%@@@%*%@@@@@@@@@@@@@#*#@**+====++++====-=%%@@%*--====+==========+++====+++*#*%%@@@@#**##**#%#%" << endl;
+	cout << "%@@@@@##@@@##@@@@@@@@@@@@@%##@%#=======--------#@@@@#-==-----=+=-=+==---=--*+=**#***#*%@@#**##*****@" << endl;
+	cout << "%@@@@@%@@@@%%@@@@@@%@@@@@@%#*%@#+=-=-----=-==-+@#@@@*-----------------=-==**+***###*#**#@@*******%%@" << endl;
+	cout << "*@@@@@%@@@@@%%@@@@@%@@@@@@@#*%@#+=-----------=%+#@@@%-:::---------------=#********%#%#*##@#********#" << endl;
+	cout << "#@@@@@@#@@@@@@#@@@@@@@@@@@@#**@%==-:::--::::-#@%%@@@%*----:::::::-:-::-*+++#***###%#@@*###%#********" << endl;
+	cout << "@#@@@@@@@@@@@@@%@@@@@@@@@@@##*%@*+-:----=--:::+#@#@@@@=::::-------====++++##*****#@##%###%@%**####**" << endl;
+
 	srand(time(NULL));
 	int room = 1;
 	inventory[0] = "mystic whip";
@@ -22,25 +97,25 @@ int main() {
 	inventory[2] = "armor";
 	string input;
 	while (PlayerHealth > 0 && (input != "quit")) { //game loop!
-		
+
 		cout << endl << "-------------------------------------------" << endl;
 		cout << "your iventoy: | ";
 		for (int i = 0; i < 5; i++)
 			cout << inventory[i] << " | ";
-		
+
 		cout << endl;
-		
+
 		switch (room) {
 		case 1:
-			BattleSys();
-			cout << "you're in the graveyard, you can go north" << endl;
 			
+			cout << "you're in the graveyard, you can go north" << endl;
+
 			cin >> input;
 			if (input == "north" || input == "go north")
 				room = 2;
 			break;
 		case 2:
-			
+			BattleSys();
 			cout << "you're in room 2, you can go south, north, west, or east" << endl;
 			cin >> input;
 			if (input == "south" || input == "go south")
@@ -51,13 +126,13 @@ int main() {
 				room = 4;
 			else if (input == "north" || input == "go north")
 				if (inventory[2] == "key") {
-				cout << "you unlock the door with the key" << endl;
-				inventory[2] = ""; //erases key form inventory
-				room = 9;
-			}
-			else {
-				cout << "Door is locked; Key item require to enter" << endl;
-			}
+					cout << "you unlock the door with the key" << endl;
+					inventory[2] = ""; //erases key form inventory
+					room = 9;
+				}
+				else {
+					cout << "Door is locked; Key item require to enter" << endl;
+				}
 			break;
 		case 3:
 			BattleSys();
@@ -81,12 +156,20 @@ int main() {
 			cin >> input;
 			if (input == "east" || input == "go east")
 				room = 3;
+			if (inventory[4] == "Sypha" || inventory[4] == "sypha") {
+				cout << "you unlock the chest" << endl;
+				cout << "You have obtained The Morning Star; The whip that will destroy all who are related to the kindred of the night." << endl;
+				inventory[6] = "door key"; //erases inventory
+			}
 			break;
 		case 6:
+			BossSys();
 			cout << "you are in the catacombs, west is the only direction available" << endl;
 			cin >> input;
 			if (input == "west" || input == "go west")
 				room = 4;
+			cout << "Character Unlocked" << endl;
+			inventory[4] = "Sypha";
 			break;
 		case 7:
 			BattleSys();
@@ -139,11 +222,15 @@ int main() {
 				room = 14;
 			break;
 		case 13:
-			cout << "you are in room 13, you can go east" << endl;
+			cout << "you entered one of the devil forgemaster's smith room, there were left with equipments, weapons, pile of fresh corpses to your right, and a locked chest?(you will need a key to unlock the chest and can only go east)" << endl;
 			cin >> input;
 			if (input == "east" || input == "go east")
 				room = 11;
-			if (inventory[6] == "key") {
+			if (input == "chest") {
+				cout << "You inspect the chest, you notticed a Belmont crest on the lock and that could mean one thing" << endl;
+				cout << "It is locked (key required)" << endl;
+			}
+			if (inventory[6] == "key" || inventory[6] == "use key") {
 				cout << "you unlock the chest" << endl;
 				cout << "You have obtained The Morning Star; The whip that will destroy all who are related to the kindred of the night." << endl;
 				inventory[0] = "Morning Star"; //erases inventory
@@ -157,12 +244,12 @@ int main() {
 			break;
 		case 15:
 			FinalFight();
-			cout << "Trevor, Sypha, and Alucard enters the vampire lord's study and BEHOLD, they are facing Dracula himself; Now the FINAL begins." << endl;
+			cout << "Trevor, Sypha, and Alucard enters the vampire lord's study room and BEHOLD, they are facing Dracula himself; Now the FINAL begins." << endl;
 			//replace with a "you won" statement and then type return 0;
 			break;
 		case 16:
-			SecrectBoss();
-			cout << "Trevor, Sypha, and Alucard enters the vampire lord's study and BEHOLD, they are facing Dracula himself" << endl;
+			//SecrectBoss();
+			cout << "Trevor, Sypha, and Alucard , they are facing Dracula himself" << endl;
 			break;
 		}
 
@@ -184,18 +271,17 @@ void BattleSys() {
 	int input;
 	int num;
 
-
 	//copy paste all the stuff below and have it calculate for health 2 and dmg 2
 	if (MonsterType == 1) {//skeleton
 		MonsterHealth = 30;
 	}
 
 	if (MonsterType == 2) { //Slogra and Gaibon
-		MonsterHealth = 200;
+		MonsterHealth = 165;
 	}
 
 	if (MonsterType == 3) { //gaibon
-		MonsterHealth = 200;
+		MonsterHealth = 160;
 	}
 
 	if (MonsterType == 4) { //lesser demon
@@ -241,11 +327,11 @@ void BattleSys() {
 	}
 
 	if (MonsterType == 2) { //Slogra and Gaibon
-		MonsterHealth2 = 200;
+		MonsterHealth2 = 165;
 	}
 
 	if (MonsterType == 3) { //gaibon
-		MonsterHealth2 = 200;
+		MonsterHealth2 = 160;
 	}
 
 	if (MonsterType == 4) { //lesser demon
@@ -346,7 +432,7 @@ void BattleSys() {
 		case 1:
 			//player attack
 			if (inventory[0] == "mystic whip") {
-				num = rand() % 25 + 10; //range from 10-24
+				num = rand() % 25 + 15; //range from 10-24
 				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
 				MonsterHealth -= num;
 				//repeat the line above for monster 2
@@ -358,7 +444,7 @@ void BattleSys() {
 				//repeat for monster2
 			}
 			if (inventory[0] == "mystic whip") {
-				num = rand() % 25 + 10; //range from 10-20
+				num = rand() % 25 + 15; //range from 10-20
 				cout << "you slash another monster with your whip for " << num << " damage!" << endl;
 				MonsterHealth2 -= num;
 
@@ -368,11 +454,34 @@ void BattleSys() {
 				cout << "you attack for " << num << " dmg" << endl;
 				MonsterHealth2 -= num;
 
+				if (inventory[0] == "Morning Star") {
+					num = rand() % 100 + 50; //range from 10-24
+					cout << "you slash the monsters with the Morning Star for " << num << " damage!" << endl;
+					MonsterHealth -= num;
+					//repeat the line above for monster 2
+				}
+				else {
+					num = rand() % 16 + 5; //range from 5-15
+					cout << "you attack for " << num << " dmg" << endl;
+					MonsterHealth -= num;
+					//repeat for monster2
+				}
+				if (inventory[0] == "Morning Star") {
+					num = rand() % 85 + 50; //range from 10-20
+					cout << "you slash another monster with the Morning Star for " << num << " damage!" << endl;
+					MonsterHealth2 -= num;
+
+				}
+				else {
+					num = rand() % 16 + 5; //range from 2-7
+					cout << "you attack for " << num << " dmg" << endl;
+					MonsterHealth2 -= num;
+				}
 			}
 			break;
 		case 2:
 			//player attack
-			if (inventory[2] == "sword") {
+			if (inventory[1] == "sword") {
 				num = rand() % 26 + 5; //range from 5-25
 				cout << "you slash the monsters with your sword for " << num << " damage!" << endl;
 				MonsterHealth -= num;
@@ -384,7 +493,7 @@ void BattleSys() {
 				MonsterHealth -= num;
 				//repeat for monster2
 			}
-			if (inventory[2] == "sword") {
+			if (inventory[1] == "sword") {
 				num = rand() % 26 + 10; //range from 10-20
 				cout << "you slash the monsters with your sword for " << num << " damage!" << endl;
 				MonsterHealth2 -= num;
@@ -429,7 +538,7 @@ void BattleSys() {
 	if (PlayerHealth > 0)
 		cout << "you won!" << endl;
 	else
-		cout << "Chat, you DIED; Is this real" << endl;
+		cout << "Rest In Peace" << endl;
 	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
 }
 
@@ -472,7 +581,7 @@ void BossSys() {
 	int input;
 	int num;
 	cout << endl << endl << "--------------------------BOSS BATTLE BEGINS--------------------------" << endl;
-	cout << "a Nightcreature attacks!" << endl;
+	cout << "As Trevor enters the catacombs, he spotted a hodded speaker who was stoned a Nightcreature attacks!" << endl;
 	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
 
 		//Monster fight (double this!
@@ -556,16 +665,17 @@ void BossSys() {
 	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
 }
 
-void FinalFight() {
-	int MonsterHealth = 0; //local variable: only be seen and used by BattleSim
+void BossSys2() {
+	int MonsterHealth = 195; //local variable: only be seen and used by BattleSim
 	int MonsterDMG = 0;
 	//add another monster health and dmg variable here
 	int input;
 	int num;
-	cout << endl << endl << "--------------------------DRACULA TEPES--------------------------" << endl;
+	cout << "Trevor, Sypha, and Alucard enters the vampire lord's study room and BEHOLD, they are facing Dracula himself; Now the FINAL begins." << endl;
+	cout << endl << endl << "--------------------------ALUCARD--------------------------" << endl;
 	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
 
-		//Monster fight (double this!
+		//Monster fight 
 		if (inventory[2] == "armor") {
 			num = rand() % 7 + 3;
 			cout << "your armor absorbs the blow and get hit for " << num << " damage!" << endl;
@@ -573,12 +683,12 @@ void FinalFight() {
 		}
 		else {
 			num = rand() % 15 + 12;
-			cout << "the nightcreature attacks you for " << num << " dmg" << endl;
+			cout << "Alucard attacks you for " << num << " dmg" << endl;
 			PlayerHealth -= num;
 		}
 
 		//gets player's choice:
-		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, press 4 for Sypha, press 5 for Alucard, 6 to try escape!" << endl;
+		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, press 4 for Sypha, press 5 for Alucard" << endl;
 		cin >> input;
 
 		switch (input) {
@@ -621,14 +731,87 @@ void FinalFight() {
 			else cout << "sorry you don't have any potions" << endl;
 
 			break;
-		case 4://escape
-			num = rand() % 100;
-			if (num > 75) {//25% chance of escaping
-				cout << "you successfully run away!" << endl;
-				MonsterHealth = 0;
+		default:
+			cout << "srry not an option" << endl;
+		}
 
+		cout << "your health:" << PlayerHealth << endl;
+		cout << "monster's health:" << MonsterHealth << endl;
+		//monster 2 health here
+
+	}//end of battle loop
+	if (PlayerHealth > 0)
+		cout << "you won!" << endl;
+	else
+		cout << "Chat, you DIED; Is this real" << endl;
+	cout << "--------------------------THE BATTLE END--------------------------" << endl << endl;
+}
+
+void FinalFight() {
+	int MonsterHealth = 195; //local variable: only be seen and used by BattleSim
+	int MonsterDMG = 0;
+	//add another monster health and dmg variable here
+	int input;
+	int num;
+	cout << "Trevor, Sypha, and Alucard enters the vampire lord's study room and BEHOLD, they are facing Dracula himself; Now the FINAL begins." << endl;
+	cout << endl << endl << "--------------------------DRACULA TEPES--------------------------" << endl;
+	while (PlayerHealth > 0 && MonsterHealth > 0) { //battle loop
+
+		//Monster fight 
+		if (inventory[2] == "armor") {
+			num = rand() % 7 + 3;
+			cout << "your armor absorbs the blow and get hit for " << num << " damage!" << endl;
+			PlayerHealth -= num;
+		}
+		else {
+			num = rand() % 15 + 12;
+			cout << "Dracula attacks you for " << num << " dmg" << endl;
+			PlayerHealth -= num;
+		}
+
+		//gets player's choice:
+		cout << "press 1 to attack, 2 to second attack, 3 to drink health potion, press 4 for Sypha, press 5 for Alucard" << endl;
+		cin >> input;
+
+		switch (input) {
+		case 1:
+			//player attack
+			if (inventory[0] == "mystic whip") {
+				num = rand() % 25 + 10; //range from 10-24
+				cout << "you slash the monsters with your whip for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
 			}
-			else cout << "you are connered and can't escape!" << endl;
+			else {
+				num = rand() % 16 + 5; //range from 5-15
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 2:
+			//player attack
+			if (inventory[2] == "sword") {
+				num = rand() % 26 + 5; //range from 5-25
+				cout << "you slash the monsters with your sword for " << num << " damage!" << endl;
+				MonsterHealth -= num;
+				//repeat the line above for monster 2
+			}
+			else {
+				num = rand() % 26 + 5; //range from 2-7
+				cout << "you attack for " << num << " dmg" << endl;
+				MonsterHealth -= num;
+				//repeat for monster2
+			}
+			break;
+		case 3: //health
+			if (inventory[3] == "potion") {
+				cout << "jug jug!" << endl;
+				PlayerHealth += 50;
+				inventory[3] = " "; //erase the potion
+			}
+			else cout << "sorry you don't have any potions" << endl;
+
 			break;
 		default:
 			cout << "srry not an option" << endl;
